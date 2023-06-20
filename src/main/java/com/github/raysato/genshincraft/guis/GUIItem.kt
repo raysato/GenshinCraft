@@ -5,18 +5,23 @@ import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.ItemStack
 import net.kyori.adventure.text.Component
 
-abstract class GUIItem(
-    material: Material,
-    name: Component,
-    lore: List<Component>,
-    fuction: (InventoryClickEvent) -> Unit,
-    enchant: Boolean = false,
-) {
-    val itemStack = ItemStack(material)
-    val itemMeta = itemStack.itemMeta
-    init {
+class GUIItem(itemStack: ItemStack, function: (InventoryClickEvent) -> Unit, enchant: Boolean = false) {
+    val item: ItemStack;
+    val fn = function
+    var doEnchant = enchant
+    constructor(material: Material, name: Component, lore: List<Component>, function: (InventoryClickEvent) -> Unit, enchant: Boolean = false): this(ItemStack(material), function, enchant) {
+        val itemMeta = item.itemMeta
         itemMeta.displayName(name)
         itemMeta.lore(lore)
-        itemStack.setItemMeta(itemMeta)
+        item.setItemMeta(itemMeta)
+    }
+    constructor(itemStack: ItemStack, name: Component, lore: List<Component>, function: (InventoryClickEvent) -> Unit, enchant: Boolean = false): this(itemStack, function, enchant) {
+        val itemMeta = item.itemMeta
+        itemMeta.displayName(name)
+        itemMeta.lore(lore)
+        item.setItemMeta(itemMeta)
+    }
+    init {
+        item = itemStack
     }
 }

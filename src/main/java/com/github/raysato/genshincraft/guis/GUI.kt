@@ -9,16 +9,17 @@ import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.Inventory
 import kotlin.math.ceil
 
-abstract class GUI(items: Map<Int, GUIItem>, player: Player, title: Component) {
-    val inventory: Inventory
-    init {
+abstract class GUI() {
+    abstract val title: Component
+    abstract val items: Map<Int, GUIItem>
+
+    fun getGUI(player: Player): Inventory {
         val size: Int = ceil((items.maxByOrNull { it.key }?.key ?: 0) / 9.0).toInt() * 3
-        inventory = Bukkit.createInventory(player, size, title)
+        return Bukkit.createInventory(player, size, title)
     }
 
-    fun onClick(e: InventoryClickEvent) {
+    open fun onClick(e: InventoryClickEvent) {
         val item = e.currentItem
-        val gui = NBT.get(item) { nbt: ReadableNBT -> nbt.getByte("guiType") }
-
+        items[e.slot]?.fn?.invoke(e)
     }
 }
