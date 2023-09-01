@@ -12,7 +12,7 @@ abstract class GUI() {
     abstract val items: Map<Int, GUIItem>
 
     fun getGUI(player: Player): Inventory {
-        val size: Int = ceil((items.maxByOrNull { it.key }?.key ?: 0) / 9.0).toInt() * 3
+        val size: Int = 9
         val gui = Bukkit.createInventory(player, size, title);
         for ((key, value) in items) {
             gui.setItem(key, value.item);
@@ -22,5 +22,6 @@ abstract class GUI() {
 
     open fun onClick(e: InventoryClickEvent) {
         items[e.slot]?.fn?.invoke(e)
+        e.isCancelled = true
     }
 }
