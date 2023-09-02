@@ -1,6 +1,7 @@
 package com.github.raysato.genshincraft.utils
 
 import com.github.raysato.genshincraft.GenshinCraft
+import net.kyori.adventure.text.Component
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player
 import org.bukkit.persistence.PersistentDataType
@@ -33,5 +34,9 @@ class LangController(_player: Player) {
             return lang.en
         }
         return lang.ja
+    }
+
+    fun getComponent(lang: Lang): Component {
+        return Component.text { getText(lang) }
     }
 }
