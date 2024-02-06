@@ -3,22 +3,22 @@ package com.github.raysato.genshincraft.utils
 import com.github.raysato.genshincraft.GenshinCraft
 import net.kyori.adventure.text.Component
 import org.bukkit.NamespacedKey
-import org.bukkit.entity.Player
+import org.bukkit.entity.HumanEntity
 import org.bukkit.persistence.PersistentDataType
-import java.lang.Exception
 
-class LangController(_player: Player) {
+class LangController(var player: HumanEntity) {
     val EN = 0
     val JP = 1
-    private val player = _player
-    val language = getPlayerLang()
+    var language = getPlayerLang()
 
     fun getPlayerLang(): Int {
-        return player.persistentDataContainer.get(NamespacedKey(GenshinCraft.instance, "genshinChar"), PersistentDataType.INTEGER) ?: 0
+        return player.persistentDataContainer.get(NamespacedKey(GenshinCraft.instance, "rLocale"), PersistentDataType.INTEGER) ?: 0
     }
 
-    fun setPlayerLang(int: Int) {
-        player.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "genshinChar"), PersistentDataType.INTEGER, int)
+    fun setPlayerLang(int: Int): HumanEntity {
+        player.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "rLocale"), PersistentDataType.INTEGER, int)
+        language = int
+        return player
     }
 
     fun togglePlayerLang() {
@@ -37,6 +37,6 @@ class LangController(_player: Player) {
     }
 
     fun getComponent(lang: Lang): Component {
-        return Component.text { getText(lang) }
+        return Component.text().content(getText(lang)).build()
     }
 }

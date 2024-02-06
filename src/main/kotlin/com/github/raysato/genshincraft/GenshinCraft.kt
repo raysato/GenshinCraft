@@ -1,7 +1,6 @@
 package com.github.raysato.genshincraft
 
-import com.github.raysato.genshincraft.enchants.EnchantRegister
-import com.github.raysato.genshincraft.guis.MainGUI
+import com.github.raysato.genshincraft.guis.MainGUI.MainGUI
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -14,8 +13,7 @@ class GenshinCraft : JavaPlugin(), CommandExecutor {
         log = logger
         instance = this
         server.pluginManager.registerEvents(EventListener, this)
-        EnchantRegister.register()
-        log.info(instance.config.load("lang.yml").)
+        // log.info(instance.config.load("lang.yml").)
     }
 
     override fun onDisable() {
@@ -28,7 +26,7 @@ class GenshinCraft : JavaPlugin(), CommandExecutor {
         if(command.name.equals("genshin", true)){
             val player = sender as Player
             logger.info(player.name)
-            player.openInventory(MainGUI(player).getGUI(player))
+            player.openInventory(MainGUI(player).getGUI())
             return true
         }
         return false

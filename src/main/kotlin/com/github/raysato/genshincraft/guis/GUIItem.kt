@@ -1,26 +1,17 @@
 package com.github.raysato.genshincraft.guis
 
-import com.github.raysato.genshincraft.enchants.EnchantRegister
-import com.github.raysato.genshincraft.enchants.Glitter
-import org.bukkit.Material
-import org.bukkit.event.inventory.InventoryClickEvent
+import com.github.raysato.genshincraft.utils.Lang
+import com.github.raysato.genshincraft.utils.LangController
 import org.bukkit.inventory.ItemStack
-import net.kyori.adventure.text.Component
-import org.bukkit.entity.Player
 
-open class GUIItem(itemStack: ItemStack, function: (InventoryClickEvent) -> Unit = fun(_) {}) {
-    val item = itemStack;
-    val fn = function
+class ItemLang(val name: Lang, val lore: Lang)
+open class GUIItem(itemStack: ItemStack, var langs: ItemLang) {
+    val item = itemStack
 
-    fun addGlitter() {
+    open fun updateLocale(langController: LangController) {
         val itemMeta = item.itemMeta
-        itemMeta.addEnchant(EnchantRegister.GLITTER, 0, true)
-        item.setItemMeta(itemMeta)
-    }
-
-    fun removeGlitter() {
-        val itemMeta = item.itemMeta
-        itemMeta.removeEnchant(EnchantRegister.GLITTER)
+        itemMeta.displayName(langController.getComponent(langs.name))
+        itemMeta.lore(listOf(langController.getComponent(langs.lore)))
         item.setItemMeta(itemMeta)
     }
 }
