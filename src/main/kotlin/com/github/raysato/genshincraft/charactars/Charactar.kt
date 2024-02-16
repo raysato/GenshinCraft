@@ -2,12 +2,17 @@ package com.github.raysato.genshincraft.charactars
 
 import com.github.raysato.genshincraft.utils.Lang
 
-enum class Charactar(val id: Int, val textureValue: String, val textureSignature: String, val displayName: Lang, val lore: Lang) {
+enum class Charactar(val id: Int, val textureValue: String, val displayName: Lang, val lore: Lang) {
     KOKOMI(
         1,
         "ewogICJ0aW1lc3RhbXAiIDogMTY0ODM4MDk0NTQ0MSwKICAicHJvZmlsZUlkIiA6ICJlM2I0NDVjODQ3ZjU0OGZiOGM4ZmEzZjFmN2VmYmE4ZSIsCiAgInByb2ZpbGVOYW1lIiA6ICJNaW5pRGlnZ2VyVGVzdCIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82M2U2YWYwYmVlNjFiY2ZmNjAzMDNkZDAyY2YzZTczYWFkN2UwZjI5NTVjZWQxMzkxOTU4OGNiMTYxNDc0ZDJkIiwKICAgICAgIm1ldGFkYXRhIiA6IHsKICAgICAgICAibW9kZWwiIDogInNsaW0iCiAgICAgIH0KICAgIH0KICB9Cn0=",
-        "irHy80CjGaykOW5eqHLla0VZLgcE2Ujf6gZdaovTVZlkiMpaBCPpHO5BPp1yLEYrYZ4cV3R8Z80R++x8zayHqD5lZQLuOPSxg+khllPq1kQgh7Baz1cktOMlFrVtixs3tuvjm7AycWIW+IDivoeRxEhob7cSSW/WnYyvg7mA9ksgGCRJ9cIbu2gvgxQsKQopgyOra4tpJe350aFtDmw31R+mRVVKKhi/HImaakJFBIgqvui3WkYfxq1KaUmS3nEUBWI3vGpgsDnJpMSyXiJlw1kNuDA9Z3OEijl1r7mpvPMTrm7apmhL52QMy176JWONJ17v/dYky8UBNlL/ma45LliEAsrn2IEWi+UbzQoda1ETmGYxA/457g70nhUe8u/9AC54b5Vl7NpMuGGZIdxvffVr58+UGQrTAEifOFPJGlGLw6u0HpnQ2SfKNb0GYZMLaYww0j0AYdLrgiqOgnMdo92MqC5VrjdT1PZcyzImk6jpJmHBO6SYL8/SZoRruUU7y/P7Ykee7k4Oss+YF4pXYp5uYWY9oYVFQOXWn3LvxFyJGNbJZW8Q4KHDF6T1HM5bYMnQj/DjndNIDPZgf+rC72C8W+VeXFBKubbkxvK+PT6d7vRrMm5XhT4aLqIuHZTofP9dfQ4TlECytcwVQHLEKaSXjESV1IW0vrvTbRAqr8U=",
         Lang.CHARA_KOKOMI_NAME,
         Lang.ITEM_KOKOMI_LORE,
-        )
+        ),
+    FISCHL(
+        2,
+        "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTU2MGYzMmU0N2E5ODlhMDA3YzhjMTZiMmExYzQyNDkxYmQyOTkyNmNkYmUxYzdhYTNhNDVlMDdjM2Y0ODJiYSJ9fX0=",
+        Lang.CHARA_FISCHL_NAME,
+        Lang.ITEM_FISCHL_LORE,
+    )
 }

@@ -67,7 +67,7 @@ class KokomiSkill: Skill() {
         squid.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "static"), PersistentDataType.BOOLEAN, true)
         skillEntity.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "static"), PersistentDataType.BOOLEAN, true)
         skillEntity.addPassenger(squid)
-        KokomiSkillTask(skillEntity).runTaskLater(GenshinCraft.instance, 0)
+        KokomiSkillTask(skillEntity, 6, player).runTaskLater(GenshinCraft.instance, 0)
         player.setCooldown(item.type, coolDown)
         e.isCancelled = true
     }

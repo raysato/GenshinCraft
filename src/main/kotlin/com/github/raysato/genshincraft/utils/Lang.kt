@@ -21,6 +21,18 @@ enum class Lang(val en: String, val ja: String) {
         "Click to change",
         "クリックで切り替え"
     ),
+    CHARA_FISCHL_NAME(
+        "Fischl",
+        "フィッシェル"
+    ),
+    CHARA_FISCHL_SKILL(
+        "Kurage's Oath",
+        "海月の誓い"
+    ),
+    ITEM_FISCHL_LORE(
+        "Click to change",
+        "クリックで切り替え"
+    ),
     TEXT_SELECTED(
         "[Selected] ",
         "[選択済] ",

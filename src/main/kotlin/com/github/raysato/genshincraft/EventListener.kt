@@ -1,6 +1,7 @@
 package com.github.raysato.genshincraft
 
 import com.github.raysato.genshincraft.charactars.Charactar
+import com.github.raysato.genshincraft.charactars.fischl.FischlSkill
 import com.github.raysato.genshincraft.charactars.kokomi.KokomiSkill
 import com.github.raysato.genshincraft.guis.MainGUI.MainGUI
 import com.github.raysato.genshincraft.guis.GUIType
@@ -35,6 +36,7 @@ object EventListener: Listener {
         }
         when (player.persistentDataContainer.get(NamespacedKey(GenshinCraft.instance, "genshinChar"), PersistentDataType.INTEGER)) {
             Charactar.KOKOMI.id -> KokomiSkill().click(e)
+            Charactar.FISCHL.id -> FischlSkill().click(e)
         }
     }
 
@@ -42,16 +44,13 @@ object EventListener: Listener {
     fun onBlockFromTo(e: FluidLevelChangeEvent) {
         val block = e.block
         if (block.type !== Material.WATER) {
-            GenshinCraft.log.info("canclel1")
             return
         }
         val entities = block.world.getNearbyEntities(block.location.add(0.0, -1.0, 0.0), 0.5, 0.5, 0.5)
         if (entities.isEmpty() || entities.first() == null || !entities.first().persistentDataContainer.has(NamespacedKey(GenshinCraft.instance, "static"))) {
-            GenshinCraft.log.info("canclel2")
             return
 
         }
-        GenshinCraft.log.info("canclel3")
         e.isCancelled = true
     }
 }

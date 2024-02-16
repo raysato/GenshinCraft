@@ -22,7 +22,7 @@ class CharactarGUIItem(val character: Charactar, val player: HumanEntity) : GUII
     init {
         val skullMeta = item.itemMeta as SkullMeta
         val profile =  Bukkit.createProfile(UUID.randomUUID(), null)
-        profile.setProperty(ProfileProperty("textures", character.textureValue, character.textureSignature))
+        profile.setProperty(ProfileProperty("textures", character.textureValue))
         skullMeta.playerProfile = profile
         skullMeta.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "genshinGUI"), PersistentDataType.INTEGER, GUIType.CHARACTER.id)
         skullMeta.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "genshinChar"), PersistentDataType.INTEGER, character.id)

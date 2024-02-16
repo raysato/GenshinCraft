@@ -15,6 +15,7 @@ class MainGUI(player: HumanEntity): GUI(player) {
     override val title = Component.text("Character")
     override val items = mapOf(
         Charactar.KOKOMI.id to CharactarGUIItem(Charactar.KOKOMI, player),
+        Charactar.FISCHL.id to CharactarGUIItem(Charactar.FISCHL, player),
         8 to ChangeLocaleGUIItem()
     )
 

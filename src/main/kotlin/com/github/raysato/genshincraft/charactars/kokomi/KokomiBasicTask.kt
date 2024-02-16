@@ -17,7 +17,6 @@ class KokomiBasicTask(private val projectile: Projectile, private val shooter: P
         val entities = projectile.getNearbyEntities(1.0, 1.0, 1.0).filterNotNull().filter { entity: Entity -> entity is LivingEntity && shooter.entityId != entity.entityId }
         if (entities.isNotEmpty()) {
             val target = entities.first() as LivingEntity
-            GenshinCraft.log.info(projectile.entityId.toString() + " : " + shooter.entityId.toString())
             target.damage(1.0, shooter)
             projectile.remove()
             shooter.playSound(shooter.location, org.bukkit.Sound.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1f, 1f)
