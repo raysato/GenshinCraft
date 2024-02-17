@@ -33,6 +33,18 @@ enum class Lang(val en: String, val ja: String) {
         "Click to change",
         "クリックで切り替え"
     ),
+    CHARA_GANYU_NAME(
+        "Ganyu",
+        "甘雨"
+    ),
+    CHARA_GANYU_SKILL(
+        "Kurage's Oath",
+        "海月の誓い"
+    ),
+    ITEM_GANYU_LORE(
+        "Click to change",
+        "クリックで切り替え"
+    ),
     TEXT_SELECTED(
         "[Selected] ",
         "[選択済] ",

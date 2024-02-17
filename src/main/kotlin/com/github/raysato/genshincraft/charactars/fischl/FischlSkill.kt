@@ -2,19 +2,14 @@ package com.github.raysato.genshincraft.charactars.fischl
 
 import com.github.raysato.genshincraft.GenshinCraft
 import com.github.raysato.genshincraft.charactars.Skill
-import com.github.raysato.genshincraft.charactars.kokomi.KokomiBasicTask
-import com.github.raysato.genshincraft.charactars.kokomi.KokomiSkillTask
 import com.github.raysato.genshincraft.utils.Lang
-import org.bukkit.*
-import org.bukkit.entity.ArmorStand
+import org.bukkit.Location
+import org.bukkit.Material
 import org.bukkit.entity.EntityType
-import org.bukkit.entity.Firework
 import org.bukkit.entity.Phantom
 import org.bukkit.event.block.Action
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.inventory.ItemStack
-import org.bukkit.persistence.PersistentDataType
-import kotlin.math.floor
 
 class FischlSkill: Skill() {
     override val name = Lang.CHARA_KOKOMI_SKILL

@@ -1,16 +1,13 @@
 package com.github.raysato.genshincraft.guis.MainGUI
 
-import com.github.raysato.genshincraft.GenshinCraft
-import com.github.raysato.genshincraft.charactars.CharactarGUIItem
 import com.github.raysato.genshincraft.charactars.Charactar
+import com.github.raysato.genshincraft.charactars.CharactarGUIItem
 import com.github.raysato.genshincraft.guis.GUI
 import com.github.raysato.genshincraft.utils.DataKey
 import com.github.raysato.genshincraft.utils.PersistentDataController
 import net.kyori.adventure.text.Component
-import org.bukkit.NamespacedKey
 import org.bukkit.entity.HumanEntity
 import org.bukkit.event.inventory.InventoryClickEvent
-import org.bukkit.persistence.PersistentDataType
 
 class MainGUI(player: HumanEntity): GUI(player) {
 
@@ -24,8 +21,6 @@ class MainGUI(player: HumanEntity): GUI(player) {
 
     override fun onClick(e: InventoryClickEvent) {
         val actionID = PersistentDataController.getData(e.currentItem!!.itemMeta, DataKey.GUI_ACTION_TYPE)
-
-        GenshinCraft.log.info(actionID.toString())
         when (actionID) {
             MainGUIAction.CHANGE_LOCALE.id -> changeLocale(e)
             MainGUIAction.CHANGE_CHARACTER.id -> changeCharacter(e)
@@ -48,7 +43,7 @@ class MainGUI(player: HumanEntity): GUI(player) {
         if (e.currentItem === null || itemCharID == null) {
             return
         }
-        clickedPlayer.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "genshinChar"), PersistentDataType.INTEGER, if (playerCharID === itemCharID) -1 else itemCharID)
+        PersistentDataController.setData(clickedPlayer, DataKey.CHARACTER_TYPE, if (playerCharID === itemCharID) -1 else itemCharID)
         (items[itemCharID] as CharactarGUIItem).updateStatus()
         reopen()
     }

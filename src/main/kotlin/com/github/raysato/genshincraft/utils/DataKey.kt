@@ -1,7 +1,6 @@
 package com.github.raysato.genshincraft.utils
 
 import org.bukkit.persistence.PersistentDataType
-import kotlin.reflect.typeOf
 
 sealed class DataKey<T: Any>(val keyName: String, val dataType: PersistentDataType<*, T>, val defaultValue: T) {
     data object GUI_TYPE: DataKey<Int> (
@@ -19,15 +18,10 @@ sealed class DataKey<T: Any>(val keyName: String, val dataType: PersistentDataTy
         PersistentDataType.BOOLEAN,
         false,
     )
-    data object BOW_CHARGED_FOR: DataKey<Int> (
-        "genshinBowCharged",
+    data object BOW_TASK_ID: DataKey<Int> (
+        "genshinCanShootCharged",
         PersistentDataType.INTEGER,
         0,
-    )
-    data object BOW_IS_CHARGED: DataKey<Boolean> (
-        "genshinCanShootCharged",
-        PersistentDataType.BOOLEAN,
-        false,
     )
     data object GUI_ACTION_TYPE: DataKey<Int> (
         "genshinGUIAction",

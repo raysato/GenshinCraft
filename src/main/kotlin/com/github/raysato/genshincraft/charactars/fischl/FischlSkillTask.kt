@@ -1,13 +1,7 @@
 package com.github.raysato.genshincraft.charactars.fischl
 
 import com.github.raysato.genshincraft.GenshinCraft
-import com.github.raysato.genshincraft.charactars.kokomi.KokomiSkillTask
-import org.bukkit.Material
-import org.bukkit.NamespacedKey
-import org.bukkit.Particle
-import org.bukkit.attribute.Attribute
 import org.bukkit.entity.Entity
-import org.bukkit.entity.EntityCategory
 import org.bukkit.entity.HumanEntity
 import org.bukkit.entity.LivingEntity
 import org.bukkit.scheduler.BukkitRunnable

@@ -1,6 +1,5 @@
 package com.github.raysato.genshincraft.charactars.kokomi
 
-import com.github.raysato.genshincraft.GenshinCraft
 import org.bukkit.Particle
 import org.bukkit.SoundCategory
 import org.bukkit.entity.Entity

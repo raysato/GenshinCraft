@@ -1,10 +1,7 @@
 package com.github.raysato.genshincraft.utils
 
-import com.github.raysato.genshincraft.GenshinCraft
 import net.kyori.adventure.text.Component
-import org.bukkit.NamespacedKey
 import org.bukkit.entity.HumanEntity
-import org.bukkit.persistence.PersistentDataType
 
 class LangController(var player: HumanEntity) {
     val EN = 0

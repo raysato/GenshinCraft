@@ -9,15 +9,15 @@ import com.github.raysato.genshincraft.guis.GUIType
 import com.github.raysato.genshincraft.utils.DataKey
 import com.github.raysato.genshincraft.utils.PersistentDataController
 import org.bukkit.Material
-import org.bukkit.NamespacedKey
 import org.bukkit.entity.EntityType
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.FluidLevelChangeEvent
 import org.bukkit.event.entity.EntityShootBowEvent
+import org.bukkit.event.entity.ProjectileHitEvent
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.player.PlayerInteractEvent
-import org.bukkit.persistence.PersistentDataType
+import org.bukkit.event.player.PlayerItemHeldEvent
 
 object EventListener: Listener {
     @EventHandler
@@ -44,6 +44,7 @@ object EventListener: Listener {
         when (charType) {
             Charactar.KOKOMI.id -> KokomiSkill().click(e)
             Charactar.FISCHL.id -> FischlSkill().click(e)
+            Charactar.GANYU.id -> GanyuSkill().click(e)
         }
     }
 
@@ -71,6 +72,18 @@ object EventListener: Listener {
         }
         when (charType) {
             Charactar.GANYU.id -> GanyuSkill().chargeShot(e)
+        }
+    }
+    @EventHandler
+    fun onSwapItem(e: PlayerItemHeldEvent) {
+        GanyuSkill.cancelChargeCheck(e.player)
+    }
+
+    @EventHandler
+    fun onProjectileLand(e: ProjectileHitEvent) {
+        val projectile = e.entity
+        when (PersistentDataController.getData(projectile, DataKey.CHARACTER_TYPE)) {
+            Charactar.GANYU.id -> GanyuSkill().projectileHit(e)
         }
     }
 }

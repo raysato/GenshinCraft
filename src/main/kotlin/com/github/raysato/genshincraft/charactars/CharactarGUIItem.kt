@@ -1,7 +1,6 @@
 package com.github.raysato.genshincraft.charactars
 
 import com.destroystokyo.paper.profile.ProfileProperty
-import com.github.raysato.genshincraft.GenshinCraft
 import com.github.raysato.genshincraft.guis.GUIItem
 import com.github.raysato.genshincraft.guis.GUIType
 import com.github.raysato.genshincraft.guis.ItemLang
@@ -12,11 +11,9 @@ import com.github.raysato.genshincraft.utils.LangController
 import com.github.raysato.genshincraft.utils.PersistentDataController
 import org.bukkit.Bukkit
 import org.bukkit.Material
-import org.bukkit.NamespacedKey
 import org.bukkit.entity.HumanEntity
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.SkullMeta
-import org.bukkit.persistence.PersistentDataType
 import java.util.*
 
 
