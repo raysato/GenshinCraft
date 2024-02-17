@@ -1,6 +1,8 @@
 package com.github.raysato.genshincraft.charactars.kokomi
 
 import com.github.raysato.genshincraft.GenshinCraft
+import com.github.raysato.genshincraft.utils.DataKey
+import com.github.raysato.genshincraft.utils.PersistentDataController
 import org.bukkit.*
 import org.bukkit.attribute.Attribute
 import org.bukkit.block.data.Levelled
@@ -20,7 +22,7 @@ class KokomiSkillTask(val kurageEntity: LivingEntity, val iterateFor: Int = 6, v
         world.playSound(kurageEntity.location, Sound.ENTITY_PLAYER_SPLASH_HIGH_SPEED, SoundCategory.NEUTRAL, 0.4f, 1.5f)
         kurageEntity.getNearbyEntities(5.0, 100.0, 5.0).filterIsInstance<LivingEntity>().forEach{ entity: Entity? ->
             run {
-                if (entity === null || entity !is LivingEntity || entity.persistentDataContainer.has(NamespacedKey(GenshinCraft.instance, "static"))) {
+                if (entity === null || entity !is LivingEntity || PersistentDataController.getData(entity, DataKey.STATIC) !== null || entity.health <= 0) {
                     return@forEach
                 }
                 val healAmount = 5.0
@@ -42,7 +44,9 @@ class KokomiSkillTask(val kurageEntity: LivingEntity, val iterateFor: Int = 6, v
             KokomiSkillTask(kurageEntity, iterateFor - 1, player).runTaskLater(GenshinCraft.instance, 40)
             return
         }
-        block.type = Material.AIR
+        if (block.type === Material.WATER) {
+            block.type = Material.AIR
+        }
         kurageEntity.passengers[0].remove()
         kurageEntity.remove()
     }

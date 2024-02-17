@@ -2,7 +2,9 @@ package com.github.raysato.genshincraft.charactars.kokomi
 
 import com.github.raysato.genshincraft.GenshinCraft
 import com.github.raysato.genshincraft.charactars.Skill
+import com.github.raysato.genshincraft.utils.DataKey
 import com.github.raysato.genshincraft.utils.Lang
+import com.github.raysato.genshincraft.utils.PersistentDataController
 import org.bukkit.*
 import org.bukkit.entity.ArmorStand
 import org.bukkit.entity.EntityType
@@ -44,7 +46,6 @@ class KokomiSkill: Skill() {
         projectile.isShotAtAngle = true
         projectile.isSilent = true
         projectile.velocity = player.location.direction.multiply(2.5)
-        projectile.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "genshinProjectile"), PersistentDataType.FLOAT, 1f)
         KokomiBasicTask(projectile, player).runTaskTimer(GenshinCraft.instance, 0, 1)
         e.isCancelled = true
     }
@@ -64,8 +65,8 @@ class KokomiSkill: Skill() {
         skillEntity.isInvisible = true
         val squid = world.spawnEntity(pos , EntityType.GLOW_SQUID)
         squid.isInvulnerable = true
-        squid.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "static"), PersistentDataType.BOOLEAN, true)
-        skillEntity.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "static"), PersistentDataType.BOOLEAN, true)
+        PersistentDataController.setData(squid, DataKey.STATIC, true)
+        PersistentDataController.setData(skillEntity, DataKey.STATIC, true)
         skillEntity.addPassenger(squid)
         KokomiSkillTask(skillEntity, 6, player).runTaskLater(GenshinCraft.instance, 0)
         player.setCooldown(item.type, coolDown)

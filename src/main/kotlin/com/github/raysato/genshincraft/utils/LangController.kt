@@ -12,11 +12,11 @@ class LangController(var player: HumanEntity) {
     var language = getPlayerLang()
 
     fun getPlayerLang(): Int {
-        return player.persistentDataContainer.get(NamespacedKey(GenshinCraft.instance, "rLocale"), PersistentDataType.INTEGER) ?: 0
+        return PersistentDataController.getData(player, DataKey.LOCALE_TYPE) ?: DataKey.LOCALE_TYPE.defaultValue
     }
 
     fun setPlayerLang(int: Int): HumanEntity {
-        player.persistentDataContainer.set(NamespacedKey(GenshinCraft.instance, "rLocale"), PersistentDataType.INTEGER, int)
+        PersistentDataController.setData(player, DataKey.LOCALE_TYPE, int)
         language = int
         return player
     }

@@ -14,5 +14,11 @@ enum class Charactar(val id: Int, val textureValue: String, val displayName: Lan
         "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTU2MGYzMmU0N2E5ODlhMDA3YzhjMTZiMmExYzQyNDkxYmQyOTkyNmNkYmUxYzdhYTNhNDVlMDdjM2Y0ODJiYSJ9fX0=",
         Lang.CHARA_FISCHL_NAME,
         Lang.ITEM_FISCHL_LORE,
-    )
+    ),
+    GANYU(
+        3,
+        "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY0M2ZhZTk1ZDA1YjgwODZkODdkMWYwNDRhZTZiNmRjYmY0MmZkZGY5OGZiZDZmY2EzYTRlNWJmMGE0NDMwOCJ9fX0=",
+        Lang.CHARA_FISCHL_NAME,
+        Lang.ITEM_FISCHL_LORE,
+    ),
 }
